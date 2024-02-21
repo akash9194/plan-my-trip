@@ -1,0 +1,73 @@
+[
+    {
+      "cityId": 1,
+      "cityName": "New York",
+      "airportName": "John F. Kennedy International Airport",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "cityId": 2,
+      "cityName": "Los Angeles",
+      "airportName": "Los Angeles International Airport",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "cityId": 3,
+      "cityName": "Chicago",
+      "airportName": "O'Hare International Airport",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "cityId": 4,
+      "cityName": "Miami",
+      "airportName": "Miami International Airport",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "cityId": 5,
+      "cityName": "London",
+      "airportName": "Heathrow Airport",
+      "country": "United Kingdom",
+      "countryCode": "UK"
+    },
+    {
+      "cityId": 6,
+      "cityName": "Paris",
+      "airportName": "Charles de Gaulle Airport",
+      "country": "France",
+      "countryCode": "FR"
+    },
+    {
+      "cityId": 7,
+      "cityName": "Tokyo",
+      "airportName": "Haneda Airport",
+      "country": "Japan",
+      "countryCode": "JP"
+    },
+    {
+      "cityId": 8,
+      "cityName": "Sydney",
+      "airportName": "Sydney Kingsford Smith Airport",
+      "country": "Australia",
+      "countryCode": "AU"
+    },
+    {
+      "cityId": 9,
+      "cityName": "Seoul",
+      "airportName": "Incheon International Airport",
+      "country": "South Korea",
+      "countryCode": "KR"
+    },
+    {
+      "cityId": 10,
+      "cityName": "Shanghai",
+      "airportName": "Shanghai Pudong International Airport",
+      "country": "China",
+      "countryCode": "CN"
+    }
+  ]
+  

@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="flightSearchFormGroup" (ngSubmit)="searchFlights()">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="form-group">
+            <label for="postalCode"> Departure </label>
+            <select
+              class="form-control"
+              id="dropdown1"
+              name="dropdown1"
+              formControlName="departure"
+            >
+              <option value="" disabled selected>Select</option>
+              <option
+                [ngValue]="aiport.cityId"
+                *ngFor="let aiport of airportsList"
+              >
+                {{ aiport.cityName }}-{{ aiport.airportName }}
+              </option>
+            </select>
+            <div *ngIf="flightSearchFormGroup.get('departure')?.errors">
+              <p
+                class="text-error"
+                *ngIf="
+                  flightSearchFormGroup?.get('departure')?.touched &&
+                  flightSearchFormGroup.get('departure')?.errors?.required
+                "
+              >
+                Departure city is required.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="form-group">
+            <label for="destination"> Destination </label>
+            <select
+              class="form-control"
+              id="destination"
+              name="destination"
+              formControlName="destination"
+            >
+              <option value="" disabled selected>Select</option>
+              <option
+                [ngValue]="aiport.cityId"
+                *ngFor="let aiport of airportsList"
+              >
+                {{ aiport.cityName }}-{{ aiport.airportName }}
+              </option>
+            </select>
+            <div
+              *ngIf="
+                flightSearchFormGroup.get('destination')?.invalid &&
+                flightSearchFormGroup.get('destination')?.touched
+              "
+            >
+              <p
+                class="text-error"
+                *ngIf="
+                  flightSearchFormGroup.get('destination')?.errors?.required
+                "
+              >
+                Destination city is required.
+              </p>
+            </div>
+            <p
+              class="text-error"
+              *ngIf="
+                flightSearchFormGroup.hasError('destinationSameAsDeparture')
+              "
+            >
+              Source and destination cannot be same.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-lg-4">
+          <div class="form-group">
+            <label for="departDate"> Depart Date </label>
+            <input
+              #departDate
+              class="form-control"
+              type="date"
+              name="date"
+              placeholder="dd-mm-yyyy"
+              [value]="todayDate"
+              id="departDate"
+              formControlName="departDate"
+            />
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="form-group">
+            <label for="travellers"> Travellers </label>
+            <input
+              class="form-control"
+              value="1"
+              type="number"
+              id="travellers"
+              name="travellers"
+              step="1"
+              formControlName="travellers"
+            />
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div class="form-group">
+            <label for="travelClass"> Class </label>
+            <select
+              class="form-control"
+              id="travelClass"
+              name="travelClass"
+              formControlName="travelClass"
+            >
+              <option value="" selected disabled>Select</option>
+              <option
+                [ngValue]="travelClass.value"
+                *ngFor="let travelClass of travelClasses"
+              >
+                Economy
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-lg-3 offset-lg-4">
+          <button class="w-100 search-btn" (click)="searchFlights()">
+            Search Flights
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

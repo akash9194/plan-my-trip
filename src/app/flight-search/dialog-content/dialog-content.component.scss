@@ -1,0 +1,60 @@
+// General button styling
+$color-primary: #4571c4;
+
+.modal-header {
+  background: $color-primary;
+  color: #ffffff;
+}
+button {
+  background-color: $color-primary;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+}
+.text-button {
+  margin-top: 5px;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+.radio-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin-bottom: 10px;
+}
+
+.radio-button input[type="radio"] {
+  display: inline-block;
+  margin-right: 5px; /* Add some spacing between radio button and label */
+}
+.booking-class {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-class label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.booking-class input[type="checkbox"] {
+  margin-right: 10px; /* Adjust spacing between checkbox and text */
+}
+
+.booking-class .price {
+  margin-left: auto;
+}

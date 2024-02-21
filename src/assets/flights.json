@@ -1,0 +1,189 @@
+[
+  {
+      "duration": "2h 30m",
+      "departureTime": "08:00",
+      "arrivalTime": "10:30",
+      "fromCity": "New York",
+      "fromCityId": 1,
+      "toCity": "Los Angeles",
+      "toCityId": 2,
+      "noOfStops": 0,
+      "airlineName": "Delta Airlines",
+      "prices": [
+          { "class": "Economy", "price": 200, "noOfSeats": 100 },
+          { "class": "Business", "price": 300, "noOfSeats": 120 },
+          { "class": "Main", "price": 400, "noOfSeats": 150 }
+      ],
+      "minPrice": 200
+  },
+  {
+    "duration": "2h 45m",
+    "departureTime": "09:00",
+    "arrivalTime": "11:30",
+    "fromCity": "New York",
+    "fromCityId": 1,
+    "toCity": "Los Angeles",
+    "toCityId": 2,
+    "noOfStops": 0,
+    "airlineName": "Akas Delta Airlines",
+    "prices": [
+        { "class": "Economy", "price": 210, "noOfSeats": 100 },
+        { "class": "Business", "price": 300, "noOfSeats": 120 },
+        { "class": "Main", "price": 400, "noOfSeats": 150 }
+    ],
+    "minPrice": 210
+},
+  {
+      "duration": "3h",
+      "departureTime": "10:00",
+      "arrivalTime": "13:00",
+      "fromCity": "Los Angeles",
+      "fromCityId": 2,
+      "toCity": "Chicago",
+      "toCityId": 3,
+      "noOfStops": 1,
+      "airlineName": "American Airlines",
+      "prices": [
+          { "class": "Economy", "price": 150, "noOfSeats": 80 },
+          { "class": "Business", "price": 250, "noOfSeats": 100 },
+          { "class": "Main", "price": 350, "noOfSeats": 130 }
+      ],
+      "minPrice": 150
+  },
+  {
+      "duration": "2h",
+      "departureTime": "12:00",
+      "arrivalTime": "14:00",
+      "fromCity": "Chicago",
+      "fromCityId": 3,
+      "toCity": "Miami",
+      "toCityId": 4,
+      "noOfStops": 0,
+      "airlineName": "United Airlines",
+      "prices": [
+          { "class": "Economy", "price": 180, "noOfSeats": 120 },
+          { "class": "Business", "price": 280, "noOfSeats": 140 },
+          { "class": "Main", "price": 380, "noOfSeats": 160 }
+      ],
+      "minPrice": 180
+  },
+  {
+      "duration": "4h",
+      "departureTime": "09:30",
+      "arrivalTime": "13:30",
+      "fromCity": "London",
+      "fromCityId": 5,
+      "toCity": "Paris",
+      "toCityId": 6,
+      "noOfStops": 1,
+      "airlineName": "British Airways",
+      "prices": [
+          { "class": "Economy", "price": 250, "noOfSeats": 150 },
+          { "class": "Business", "price": 350, "noOfSeats": 180 },
+          { "class": "Main", "price": 450, "noOfSeats": 200 }
+      ],
+      "minPrice": 250
+  },
+  {
+      "duration": "1h 45m",
+      "departureTime": "07:30",
+      "arrivalTime": "09:15",
+      "fromCity": "Paris",
+      "fromCityId": 6,
+      "toCity": "Berlin",
+      "toCityId": 7,
+      "noOfStops": 0,
+      "airlineName": "Air France",
+      "prices": [
+          { "class": "Economy", "price": 120, "noOfSeats": 90 },
+          { "class": "Business", "price": 220, "noOfSeats": 110 },
+          { "class": "Main", "price": 320, "noOfSeats": 130 }
+      ],
+      "minPrice": 120
+  },
+  {
+      "duration": "5h",
+      "departureTime": "14:00",
+      "arrivalTime": "19:00",
+      "fromCity": "Tokyo",
+      "fromCityId": 8,
+      "toCity": "Sydney",
+      "toCityId": 9,
+      "noOfStops": 2,
+      "airlineName": "Japan Airlines",
+      "prices": [
+          { "class": "Economy", "price": 400, "noOfSeats": 200 },
+          { "class": "Business", "price": 500, "noOfSeats": 220 },
+          { "class": "Main", "price": 600, "noOfSeats": 240 }
+      ],
+      "minPrice": 400
+  },
+  {
+      "duration": "2h 15m",
+      "departureTime": "06:45",
+      "arrivalTime": "09:00",
+      "fromCity": "Sydney",
+      "fromCityId": 9,
+      "toCity": "Melbourne",
+      "toCityId": 10,
+      "noOfStops": 0,
+      "airlineName": "Qantas",
+      "prices": [
+          { "class": "Economy", "price": 130, "noOfSeats": 80 },
+          { "class": "Business", "price": 230, "noOfSeats": 100 },
+          { "class": "Main", "price": 330, "noOfSeats": 120 }
+      ],
+      "minPrice": 130
+  },
+  {
+      "duration": "3h 30m",
+      "departureTime": "11:30",
+      "arrivalTime": "15:00",
+      "fromCity": "Berlin",
+      "fromCityId": 7,
+      "toCity": "Rome",
+      "toCityId": 11,
+      "noOfStops": 1,
+      "airlineName": "Lufthansa",
+      "prices": [
+          { "class": "Economy", "price": 180, "noOfSeats": 100 },
+          { "class": "Business", "price": 280, "noOfSeats": 120 },
+          { "class": "Main", "price": 380, "noOfSeats": 140 }
+      ],
+      "minPrice": 180
+  },
+  {
+      "duration": "2h",
+      "departureTime": "10:00",
+      "arrivalTime": "12:00",
+      "fromCity": "Rome",
+      "fromCityId": 11,
+      "toCity": "Madrid",
+      "toCityId": 12,
+      "noOfStops": 0,
+      "airlineName": "Iberia",
+      "prices": [
+          { "class": "Economy", "price": 160, "noOfSeats": 120 },
+          { "class": "Business", "price": 260, "noOfSeats": 140 },
+          { "class": "Main", "price": 360, "noOfSeats": 160 }
+      ],
+      "minPrice": 160
+  },
+  {
+      "duration": "6h",
+      "departureTime": "13:00",
+      "arrivalTime": "19:00",
+      "fromCity": "Los Angeles",
+      "fromCityId": 2,
+      "toCity": "London",
+      "toCityId": 5,
+      "noOfStops": 1,
+      "airlineName": "Virgin Atlantic",
+      "prices": [
+          { "class": "Economy", "price": 300, "noOfSeats": 150 },
+          { "class": "Business", "price": 400, "noOfSeats": 180 },
+          { "class": "Main", "price": 500, "noOfSeats": 200 }
+      ],
+      "minPrice": 300
+  }
+]

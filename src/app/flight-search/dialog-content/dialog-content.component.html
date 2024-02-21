@@ -1,0 +1,44 @@
+<section class="sort-filter">
+  <div class="modal-header">
+    <h4>{{ heading }}</h4>
+  </div>
+  <ng-container *ngIf="isSorting">
+    <div class="radio-buttons-container">
+      <label class="radio-button" *ngFor="let sort of sortParameters">
+        <input
+          type="radio"
+          name="option"
+          [value]="sort.value"
+          [(ngModel)]="selectedOption"
+        />
+        {{ sort.name }}
+      </label>
+    </div>
+
+    <button (click)="apply()">Apply</button>
+    <button class="text-button" (click)="close()">Cancel</button>
+  </ng-container>
+  <ng-container *ngIf="isFiltering">
+    <p><b>Price range</b></p>
+    <hr />
+    <p>Min value: <input type="number" [(ngModel)]="minValue" /></p>
+    <p>Max value: <input type="number" [(ngModel)]="maxValue" /></p>
+    <ngx-slider
+      [(value)]="minValue"
+      [(highValue)]="maxValue"
+      [options]="options"
+    ></ngx-slider>
+    <hr />
+    <p><b>Booking class</b></p>
+    <div class="booking-class">
+      <label *ngFor="let bookingClass of bookingClasses">
+        <input type="checkbox" [(ngModel)]="bookingClass.selected" />
+        {{ bookingClass.name }}
+        <span class="price">{{ bookingClass.price }}</span>
+      </label>
+    </div>
+    <hr />
+    <button class="text-button" (click)="resetAll()">Reset all</button>
+    <button (click)="apply()">Apply</button>
+  </ng-container>
+</section>
