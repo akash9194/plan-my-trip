@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EMPTY } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { DialogService } from 'src/app/factory-components/dialog/dialog.service';
 import { Flight } from 'src/app/flight-search.model';
@@ -14,18 +14,28 @@ import { DialogContentComponent } from '../dialog-content/dialog-content.compone
 })
 export class FlightSearchResultComponent implements OnInit {
   flights!: Flight[];
+  mobileQuery: MediaQueryList;
+  isSorting = false;
+  isFiltering = false;
+  private _mobileQueryListener: () => void;
 
   constructor(
     private flightService: FlightSearchService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private dialog: DialogService
-  ) {}
+    private dialog: DialogService,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.getFlights();
   }
-  getFlights() {
+  getFlights(): void {
     this.activatedRoute.queryParams
       .pipe(
         switchMap((queryParams) => {
@@ -51,31 +61,42 @@ export class FlightSearchResultComponent implements OnInit {
         this.flights = flights;
       });
   }
-  goToLastPage() {
+  goToLastPage(): void {
     this.router.navigate(['/home']);
+  }
+  smallDeviceSort(): void {
+    this.isSorting = true;
+  }
+  largeDeviceSort(): void {
+    const dialogRef = this.dialog.open(DialogContentComponent, {
+      data: {
+        heading: 'Sort By',
+        isSorting: true,
+      },
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        tap((selectedOption) => {
+          // Subscription runs after the dialog closes
+          this.sortFlights(selectedOption);
+        })
+      )
+      .subscribe();
   }
   sortBy() {
     if (this.flights.length) {
-      const dialogRef = this.dialog.open(DialogContentComponent, {
-        data: {
-          heading: 'Sort By',
-          isSorting: true,
-        },
-      });
-
-      dialogRef
-        .afterClosed()
-        .pipe(
-          tap((selectedOption) => {
-            // Subscription runs after the dialog closes
-            this.sortFlights(selectedOption);
-          })
-        )
-
-        .subscribe();
+      if (this.mobileQuery.matches) {
+        this.isSorting = false;
+        this.isFiltering = false;
+        this.smallDeviceSort();
+      } else {
+        this.largeDeviceSort();
+      }
     }
   }
   sortFlights(selectedOption: string) {
+    this.isSorting = false;
     switch (selectedOption) {
       case 'priceHighToLow':
         this.flights.sort((a: any, b: any) => b.minPrice - a.minPrice);
@@ -132,7 +153,7 @@ export class FlightSearchResultComponent implements OnInit {
 
     return totalDuration;
   }
-  filterBy() {
+  largeDeviceFilterBy() {
     const dialogRef = this.dialog.open(DialogContentComponent, {
       data: {
         heading: 'Filter By',
@@ -155,7 +176,28 @@ export class FlightSearchResultComponent implements OnInit {
 
       .subscribe();
   }
-
+  smallDeviceFilterBy() {
+    this.isFiltering = true;
+  }
+  filterBy() {
+    if (this.flights.length) {
+      if (this.mobileQuery.matches) {
+        this.isSorting = false;
+        this.isFiltering = false;
+        this.smallDeviceFilterBy();
+      } else {
+        this.largeDeviceFilterBy();
+      }
+    }
+  }
+  getFilterFlights(filterOption: any) {
+    this.isFiltering = false;
+    if (filterOption) {
+      this.filterFlights(filterOption);
+    } else {
+      this.getFlights();
+    }
+  }
   filterFlights(filteredOption: any) {
     this.flights = this.flights.filter((flight) => {
       // Filter by minimum value

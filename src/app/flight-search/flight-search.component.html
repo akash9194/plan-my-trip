@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6 col-lg-4">
+        <div class="col-6 col-lg-3">
           <div class="form-group">
             <label for="departDate"> Depart Date </label>
             <input
@@ -84,14 +84,29 @@
               class="form-control"
               type="date"
               name="date"
-              placeholder="dd-mm-yyyy"
-              [value]="todayDate"
+              placeholder="yyyy-mm-dd"
               id="departDate"
+              [min]="todayDate"
               formControlName="departDate"
             />
           </div>
         </div>
-        <div class="col-6 col-lg-4">
+        <div class="col-6 col-lg-3">
+          <div class="form-group">
+            <label for="returnDate"> Return Date </label>
+            <input
+              #returnDate
+              class="form-control"
+              type="date"
+              name="date"
+              placeholder="dd-mm-yyyy"
+              [min]="todayDate"
+              id="returnDate"
+              formControlName="returnDate"
+            />
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
           <div class="form-group">
             <label for="travellers"> Travellers </label>
             <input
@@ -105,7 +120,7 @@
             />
           </div>
         </div>
-        <div class="col-6 col-lg-4">
+        <div class="col-6 col-lg-3">
           <div class="form-group">
             <label for="travelClass"> Class </label>
             <select
@@ -119,7 +134,7 @@
                 [ngValue]="travelClass.value"
                 *ngFor="let travelClass of travelClasses"
               >
-                Economy
+                {{ travelClass.name }}
               </option>
             </select>
           </div>

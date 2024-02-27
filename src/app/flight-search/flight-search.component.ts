@@ -17,7 +17,7 @@ import { Airport } from '../flight-search.model';
   styleUrls: ['./flight-search.component.scss'],
 })
 export class FlightSearchComponent implements OnInit {
-  todayDate = this.datePipe.transform(new Date(), 'yyyy-mm-dd');
+  todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   airportsList!: Airport[];
   flightsList: any;
   travelClasses = [
@@ -38,7 +38,8 @@ export class FlightSearchComponent implements OnInit {
     {
       departure: ['', Validators.required],
       destination: ['', Validators.required],
-      departDate: [null],
+      departDate: [this.todayDate],
+      returnDate: [],
       travellers: [1],
       travelClass: [''],
     },

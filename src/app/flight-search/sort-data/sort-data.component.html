@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-12">
+    <div class="radio-buttons-container">
+      <label class="radio-button" *ngFor="let sort of sortParameters">
+        <input
+          type="radio"
+          name="option"
+          [value]="sort.value"
+          [(ngModel)]="selectedOption"
+        />
+        <span> {{ sort.name }}</span>
+      </label>
+    </div>
+    <button (click)="apply()">Apply</button>
+    <button class="text-button" (click)="close()">Cancel</button>
+  </div>
+</div>

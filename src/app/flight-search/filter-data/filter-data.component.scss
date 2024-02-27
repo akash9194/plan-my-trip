@@ -1,0 +1,42 @@
+$color-primary: #4571c4;
+
+.booking-class {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-class label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.booking-class input[type="checkbox"] {
+  margin-right: 10px; /* Adjust spacing between checkbox and text */
+}
+
+.booking-class .price {
+  margin-left: auto;
+}
+button {
+  background-color: $color-primary;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+}
+.text-button {
+  margin-top: 5px;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

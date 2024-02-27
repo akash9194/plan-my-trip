@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { FlightSearchResultComponent } from './flight-search-result/flight-search-result.component';
 import { FlightSearchComponent } from './flight-search.component';
+import { SortDataComponent } from './sort-data/sort-data.component';
 
 export const routes: Routes = [
   {

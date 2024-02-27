@@ -1,0 +1,21 @@
+<p><b>Price range</b></p>
+<hr />
+<p>Min value: <input type="number" [(ngModel)]="minValue" /></p>
+<p>Max value: <input type="number" [(ngModel)]="maxValue" /></p>
+<ngx-slider
+  [(value)]="minValue"
+  [(highValue)]="maxValue"
+  [options]="options"
+></ngx-slider>
+<hr />
+<p><b>Booking class</b></p>
+<div class="booking-class">
+  <label *ngFor="let bookingClass of bookingClasses">
+    <input type="checkbox" [(ngModel)]="bookingClass.selected" />
+    {{ bookingClass.name }}
+    <span class="price">{{ bookingClass.price }}</span>
+  </label>
+</div>
+<hr />
+<button class="text-button" (click)="resetAll()">Reset all</button>
+<button (click)="apply()">Apply</button>

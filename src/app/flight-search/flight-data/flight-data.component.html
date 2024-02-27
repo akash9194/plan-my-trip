@@ -1,0 +1,51 @@
+<div class="row" *ngIf="flights?.length; else noFlightsFound">
+  <div class="col-12" *ngFor="let flight of flights">
+    <div class="flight-card">
+      <div class="flight-header">
+        <p>{{ flight.airlineName }}</p>
+      </div>
+      <div class="flight-details">
+        <div class="makeFlex">
+          <div class="makeFlex fontSize12 flexOne gap-x-10">
+            <div class="flexOne timeInfoLeft">
+              <div class="appendBottom2 flightTimeInfo">
+                <span>{{ flight.departureTime }}</span>
+              </div>
+              <div class="blackText">
+                <span>{{ flight.fromCity }}</span>
+              </div>
+            </div>
+            <div class="stop-info flexOne">
+              <p class="m-0">{{ flight.duration }}</p>
+              <div class="relative fliStopsSep">
+                <p class="fliStopsSepLine"></p>
+              </div>
+              <div class="flightsLayoverInfo">
+                <span *ngIf="flight.noOfStops > 0">
+                  {{ flight.noOfStops }} stop
+                </span>
+                <span *ngIf="flight?.noOfStops === 0"> non-stop </span>
+              </div>
+            </div>
+            <div class="flexOne text-align-center">
+              <div class="appendBottom2 flightTimeInfo">
+                <span>{{ flight.arrivalTime }}</span>
+              </div>
+              <div class="blackText">
+                <span>{{ flight.toCity }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="price-list">
+        <button *ngFor="let price of flight.prices" class="price-btn">
+          ₹{{ price.price }} <br />{{ price.class }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noFlightsFound>
+  <p>No flight(s) available for selected routes. Please select other routes.</p>
+</ng-template>
